@@ -13,7 +13,7 @@ def calculateSystem():
         for i in range(1, len(number) + 1):
             result += int(int(number[-i]) * (first_system ** (i - 1)))
     else:
-        result = number
+        result = int(number)
 
     checkResults = lambda results : results[-1] >= second_system
 
