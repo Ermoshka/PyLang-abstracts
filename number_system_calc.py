@@ -18,17 +18,11 @@ def calculateSystem():
     checkResults = lambda results : results[-1] >= second_system
 
     results.append(result)
-    remainders.append((result - int(result / second_system) * second_system))
+    remainders.append((result - (result // second_system) * second_system))
 
     while checkResults(results):
-        results.append(int(results[-1] / second_system))
-        remainder = results[-1] - int(results[-1] / second_system) * second_system
+        results.append((results[-1] // second_system))
+        remainder = results[-1] - (results[-1] // second_system) * second_system
         remainders.append(remainder)
     
-    finalRes = ''
-    for value in reversed(remainders):
-        finalRes += str(value)
-    
-    return finalRes
-
-print(calculateSystem())
+    return ''.join([str(value) for value in reversed(remainders)])
